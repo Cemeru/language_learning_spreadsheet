@@ -1,5 +1,5 @@
 function exportToAnkiTSV() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Deck"); // <- Important
 
   // === CONFIG ===
   const colCondition = "A";
