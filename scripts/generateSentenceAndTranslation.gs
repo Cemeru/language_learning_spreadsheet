@@ -22,6 +22,7 @@ function generateSentenceAndTranslation() {
 
   const langNames = {
     id: "Indonesian",
+    en: "English",
     es: "Spanish",
     fr: "French",
     de: "German",
