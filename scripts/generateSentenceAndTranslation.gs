@@ -1,6 +1,6 @@
 function generateSentenceAndTranslation() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  const openaiKey = "YOUR_OPENAI_API_KEY"; // Your OPENAI API Key
+  const openaiKey = "YOUR_OPENAI_KEY"; // Your OpenAI API Key
 
   const langFrom = "id";
   const langTo = "en";
@@ -28,6 +28,7 @@ function generateSentenceAndTranslation() {
     pt: "Portuguese",
   };
   const langFromName = langNames[langFrom] || langFrom;
+  const langToName = langNames[langTo] || langTo;
 
   const outputSentences = [];
   const outputTranslations = [];
@@ -44,7 +45,7 @@ function generateSentenceAndTranslation() {
 
         const sentence = callOpenAI(prompt, openaiKey);
 
-        const translationPrompt = `Translate this ${langFromName} sentence to English: "${sentence}". Return only the English sentence without punctuation.`;
+        const translationPrompt = `Translate this ${langFromName} sentence to ${langToName}: "${sentence}". Return only the ${langToName} sentence without a period in the end.`;
         const translation = callOpenAI(translationPrompt, openaiKey);
 
         outputSentences[i] = [sentence];
@@ -78,12 +79,12 @@ function generateSentenceAndTranslation() {
 
 function callOpenAI(prompt, apiKey) {
   const payload = {
-    model: "gpt-4o-mini",
+    model: "gpt-4.1-mini",
     messages: [
       { role: "system", content: "You are a helpful language assistant." },
       { role: "user", content: prompt }
     ],
-    temperature: 0.5,
+    temperature: 0.7,
     max_tokens: 60
   };
 
