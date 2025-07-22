@@ -1,23 +1,24 @@
 function generateSentenceAndTranslation() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  const apiKey = "YOUR_OPENAI_API_KEY"; // Replace with your actual OPENAI key
+  const openaiKey = "YOUR_OPENAI_API_KEY"; // Your OPENAI API Key
 
-  // === CONFIG ===
   const langFrom = "id";
   const langTo = "en";
   const colWord = "C";
   const colSentence = "E";
   const colTranslation = "F";
+  const startRow = 1;
+  const endRow = 5803;
 
   const colWordNum = columnLetterToNumber(colWord);
   const colSentenceNum = columnLetterToNumber(colSentence);
   const colTranslationNum = columnLetterToNumber(colTranslation);
 
-  const lastRow = sheet.getLastRow();
+  const numRows = endRow - startRow + 1;
 
-  const words = sheet.getRange(1, colWordNum, lastRow).getValues();
-  const existingSentences = sheet.getRange(1, colSentenceNum, lastRow).getValues();
-  const existingTranslations = sheet.getRange(1, colTranslationNum, lastRow).getValues();
+  const words = sheet.getRange(startRow, colWordNum, numRows).getValues();
+  const existingSentences = sheet.getRange(startRow, colSentenceNum, numRows).getValues();
+  const existingTranslations = sheet.getRange(startRow, colTranslationNum, numRows).getValues();
 
   const langNames = {
     id: "Indonesian",
@@ -26,13 +27,13 @@ function generateSentenceAndTranslation() {
     de: "German",
     pt: "Portuguese",
   };
-
   const langFromName = langNames[langFrom] || langFrom;
 
   const outputSentences = [];
   const outputTranslations = [];
+  const rowsToUpdate = [];
 
-  for (let i = 0; i < words.length; i++) {
+  for (let i = 0; i < numRows; i++) {
     const word = (words[i][0] || "").toString().trim();
     const sentenceCell = (existingSentences[i][0] || "").toString().trim();
     const translationCell = (existingTranslations[i][0] || "").toString().trim();
@@ -41,52 +42,63 @@ function generateSentenceAndTranslation() {
       try {
         const prompt = buildPrompt(word, langFrom, langFromName);
 
-        const payload = {
-          model: "gpt-4o-mini",
-          messages: [
-            { role: "system", content: `You are a helpful assistant that creates short example sentences in ${langFromName}.` },
-            { role: "user", content: prompt }
-          ],
-          temperature: 0.7,
-          max_tokens: 60
-        };
+        const sentence = callOpenAI(prompt, openaiKey);
 
-        const options = {
-          method: "post",
-          contentType: "application/json",
-          headers: { Authorization: "Bearer " + apiKey },
-          payload: JSON.stringify(payload)
-        };
+        const translationPrompt = `Translate this ${langFromName} sentence to English: "${sentence}". Return only the English sentence without punctuation.`;
+        const translation = callOpenAI(translationPrompt, openaiKey);
 
-        const response = UrlFetchApp.fetch("https://api.openai.com/v1/chat/completions", options);
-        const result = JSON.parse(response.getContentText());
-        const sentence = result.choices[0].message.content.trim();
+        outputSentences[i] = [sentence];
+        outputTranslations[i] = [translation];
+        rowsToUpdate.push(i);
 
-        const translation = LanguageApp.translate(sentence, langFrom, langTo);
+        Logger.log(`✅ Row ${startRow + i}: '${word}' → ${sentence} → ${translation}`);
+        Utilities.sleep(800);
 
-        outputSentences.push([sentence]);
-        outputTranslations.push([translation]);
-
-        Logger.log(`Row ${i + 1}: '${word}' → ${sentence} → ${translation}`);
-        Utilities.sleep(1000); // Be gentle with OpenAI's rate limit
+        if (rowsToUpdate.length >= 50) {
+          commitBatch(sheet, startRow, rowsToUpdate, outputSentences, outputTranslations, colSentenceNum, colTranslationNum);
+          rowsToUpdate.length = 0;
+        }
       } catch (e) {
-        Logger.log(`❌ Error at row ${i + 1}: ${e.message}`);
-        outputSentences.push([""]);
-        outputTranslations.push([""]);
+        Logger.log(`❌ Error at row ${startRow + i}: ${e.message}`);
+        outputSentences[i] = [""];
+        outputTranslations[i] = [""];
       }
     } else {
-      outputSentences.push([sentenceCell]);
-      outputTranslations.push([translationCell]);
+      outputSentences[i] = [sentenceCell];
+      outputTranslations[i] = [translationCell];
     }
   }
 
-  sheet.getRange(1, colSentenceNum, lastRow).setValues(outputSentences);
-  sheet.getRange(1, colTranslationNum, lastRow).setValues(outputTranslations);
+  if (rowsToUpdate.length > 0) {
+    commitBatch(sheet, startRow, rowsToUpdate, outputSentences, outputTranslations, colSentenceNum, colTranslationNum);
+  }
 }
 
 // === Helpers ===
 
-// Converts column letter (e.g. "C") to number (e.g. 3)
+function callOpenAI(prompt, apiKey) {
+  const payload = {
+    model: "gpt-4o-mini",
+    messages: [
+      { role: "system", content: "You are a helpful language assistant." },
+      { role: "user", content: prompt }
+    ],
+    temperature: 0.5,
+    max_tokens: 60
+  };
+
+  const options = {
+    method: "post",
+    contentType: "application/json",
+    headers: { Authorization: "Bearer " + apiKey },
+    payload: JSON.stringify(payload)
+  };
+
+  const response = UrlFetchApp.fetch("https://api.openai.com/v1/chat/completions", options);
+  const result = JSON.parse(response.getContentText());
+  return result.choices[0].message.content.trim();
+}
+
 function columnLetterToNumber(letter) {
   let column = 0;
   for (let i = 0; i < letter.length; i++) {
@@ -95,14 +107,20 @@ function columnLetterToNumber(letter) {
   return column;
 }
 
-// Builds a language-specific prompt
 function buildPrompt(word, langCode, langName) {
   let prompt = `Write a natural ${langName} sentence using the word '${word}' in context. The sentence must be at most 5 words.`;
-
   if (langCode === "id") {
     prompt += ` Do not use 'sangat' or 'sekali'.`;
   }
-
-  prompt += ` Return only the sentence.`;
+  prompt += ` Return only the sentence without a period at the end.`;
   return prompt;
+}
+
+function commitBatch(sheet, startRow, rowIndexes, sentenceData, translationData, colSentenceNum, colTranslationNum) {
+  rowIndexes.forEach(i => {
+    const row = startRow + i;
+    sheet.getRange(row, colSentenceNum).setValue(sentenceData[i][0]);
+    sheet.getRange(row, colTranslationNum).setValue(translationData[i][0]);
+  });
+  Logger.log(`💾 Committed ${rowIndexes.length} rows`);
 }
