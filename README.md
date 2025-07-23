@@ -53,7 +53,7 @@ No clutter. No noise. Just progress.
 Use **Column A** to track which words you've already learned:
 
 - `1` → ✅ You know this word
-- `0` or empty → ❌ Still learning
+- `0` → ❌ Still learning
 
 This simple binary system lets you filter, analyze, or visualize your progress easily.
 
