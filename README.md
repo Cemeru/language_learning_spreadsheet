@@ -2,6 +2,10 @@
 
 This is a structured system for learning languages through example sentences and spreadsheet automation. Each sheet is optimized for sentence mining, Anki export, and smart filtering using Google Apps Script.
 
+📥 All decks can also be downloaded as `.tsv` files from the `/decks` folder and imported directly into **Anki** or any other SRS tool that supports tab-separated values.
+
+No clutter. No noise. Just progress.
+
 ---
 
 ## 📚 Decks by Target Language
