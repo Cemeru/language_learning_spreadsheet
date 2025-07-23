@@ -40,6 +40,14 @@ This is a structured system for learning languages through example sentences and
   - `0` or empty → you **don’t know** the word yet
 - This helps you visualize your learning progress by filtering or calculating known vs. unknown words.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2fc40b31-a68f-43e6-a34e-451fa405f8a0" alt="Spreadsheet example 1" width="1000"/>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/25fc9ac8-a6bf-425f-91f6-fd1032586189" alt="Spreadsheet example 2" width="300"/>
+</p>
+
 ---
 
 ## 🚀 Do it Yourself
