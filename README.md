@@ -1,6 +1,10 @@
 # 🌍 Multilingual Language Learning Sheets
 
-This is a structured system for learning languages through example sentences and spreadsheet automation. Each sheet is optimized for sentence mining, Anki export, and smart filtering using Google Apps Script.
+![Google Sheets](https://img.shields.io/badge/Google-Sheets-34A853?style=for-the-badge&logo=googlesheets&logoColor=white)
+![Anki Compatible](https://img.shields.io/badge/Anki-Compatible-blue?style=for-the-badge)
+![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+A minimal, powerful system for mastering languages through sentence mining and spreadsheet automation.
 
 No clutter. No noise. Just progress.
 
@@ -28,21 +32,30 @@ No clutter. No noise. Just progress.
 
 ## ✨ Features
 
-- ⚡ Google Apps Script automations:
-  - Auto-translation with DeepL and GPT
-  - TSV export for Anki
-  - Row filtering and cleaning
-- 🧠 Sentence-based learning
-- 🪶 Lightweight and editable
-- 🛠️ 100% offline-capable with Anki export
-- 📊 Personal progress tracking with simple binary flags
-  
-## 🧮 Progress Tracking (Column A)
+🛠️ **Automations with Google Apps Script**
+- Auto-translation with DeepL and GPT
+- TSV export for Anki
+- Smart row filtering and cleanup
 
-- In **Column A**, mark:
-  - `1` → you **already know** the word (counts towards your total progress)
-  - `0` or empty → you **don’t know** the word yet
-- This helps you visualize your learning progress by filtering or calculating known vs. unknown words.
+🧠 **Learning System**
+- Sentence-based input (not just words)
+- Personal progress tracking via binary flags
+- Offline-friendly — export decks to any SRS
+
+📄 **Simple & Lightweight**
+- Fully editable in Google Sheets
+- No clutter, no noise — just you and the language
+
+---
+
+## 🧮 Track Your Progress (Column A)
+
+Use **Column A** to track which words you've already learned:
+
+- `1` → ✅ You know this word
+- `0` or empty → ❌ Still learning
+
+This simple binary system lets you filter, analyze, or visualize your progress easily.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2fc40b31-a68f-43e6-a34e-451fa405f8a0" alt="Spreadsheet example 1" width="1000"/>
@@ -54,16 +67,18 @@ No clutter. No noise. Just progress.
 
 ---
 
-## 🚀 Do it Yourself
+## 🚀 How to Use
 
-1. **Open the sheet for your language pair**
-2. **In the top menu, go to `File > Make a copy` to create your editable version**
-3. Fill it with words, phrases, and translations.
-4. Use built-in scripts like:
-   - `Export to Anki (TSV)`
-   - `Auto Translate`
-   - `Delete rows if invalid`
+1. **Open the sheet for your language pair**  
+2. **In the top menu, go to `File > Make a copy` to create your editable version**  
+3. Fill it with words, phrases, and translations.  
+4. Use the built-in tools such as:  
+   - `Export to Anki (TSV)`  
+   - `Auto Translate`  
+   - `Delete rows if invalid`  
 5. Import into **Anki** (or other flashcard tools) if you want offline SRS.
+
+---
 
 ## 🔓 License
 
