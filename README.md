@@ -31,6 +31,14 @@ This is a structured system for learning languages through example sentences and
 - 🧠 Sentence-based learning
 - 🪶 Lightweight and editable
 - 🛠️ 100% offline-capable with Anki export
+- 📊 Personal progress tracking with simple binary flags
+- 
+## 🧮 Progress Tracking (Column A)
+
+- In **Column A**, mark:
+  - `1` → you **already know** the word (counts towards your total progress)
+  - `0` or empty → you **don’t know** the word yet
+- This helps you visualize your learning progress by filtering or calculating known vs. unknown words.
 
 ---
 
