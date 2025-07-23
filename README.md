@@ -22,6 +22,6 @@ This is a structured system for learning languages through example sentences and
 
 ### 🇻🇳 Learn Tiếng Việt
 
-- 🇦🇺 [From English - In Progress]
+- 🇦🇺 From English - In Progress
 
 ---
