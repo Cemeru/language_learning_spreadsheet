@@ -36,7 +36,7 @@ No clutter. No noise. Just progress.
 - 🪶 Lightweight and editable
 - 🛠️ 100% offline-capable with Anki export
 - 📊 Personal progress tracking with simple binary flags
-- 
+  
 ## 🧮 Progress Tracking (Column A)
 
 - In **Column A**, mark:
