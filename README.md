@@ -6,9 +6,9 @@ This is a structured system for learning languages through example sentences and
 
 ## 📚 Decks by Target Language
 
-### 🇬🇧 Learn English
+### 🇦🇺 Learn English
 
-- 🇵🇹 [From Portuguese](https://docs.google.com/spreadsheets/d/1XlQrwcbLjc9mGjfcoMcMRT1-OqIvtOFWoHGo7obqHXg/edit?gid=804322809)
+- 🇧🇷 [From Portuguese](https://docs.google.com/spreadsheets/d/1XlQrwcbLjc9mGjfcoMcMRT1-OqIvtOFWoHGo7obqHXg/edit?gid=804322809)
 
 - 🇮🇩 [From Bahasa Indonesia](https://docs.google.com/spreadsheets/d/1XlQrwcbLjc9mGjfcoMcMRT1-OqIvtOFWoHGo7obqHXg/edit?gid=804322809)
 
@@ -16,12 +16,12 @@ This is a structured system for learning languages through example sentences and
 
 ### 🇮🇩 Learn Bahasa Indonesia
 
-- 🇬🇧 [From English](https://docs.google.com/spreadsheets/d/1XlQrwcbLjc9mGjfcoMcMRT1-OqIvtOFWoHGo7obqHXg/edit?gid=804322809)
+- 🇦🇺 [From English](https://docs.google.com/spreadsheets/d/1XlQrwcbLjc9mGjfcoMcMRT1-OqIvtOFWoHGo7obqHXg/edit?gid=804322809)
 
 ---
 
-### 🇵🇹 Learn Portuguese
+### 🇧🇷 Learn Portuguese
 
-- 🇬🇧 [From English](https://docs.google.com/spreadsheets/d/1XlQrwcbLjc9mGjfcoMcMRT1-OqIvtOFWoHGo7obqHXg/edit?gid=804322809)
+- 🇦🇺 [From English](https://docs.google.com/spreadsheets/d/1XlQrwcbLjc9mGjfcoMcMRT1-OqIvtOFWoHGo7obqHXg/edit?gid=804322809)
 
 ---
