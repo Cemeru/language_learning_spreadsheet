@@ -16,6 +16,6 @@ This is a structured system for learning languages through example sentences and
 
 ### 🇮🇩 Learn Bahasa Indonesia
 
-- 🇦🇺 [From English](https://docs.google.com/spreadsheets/d/1XlQrwcbLjc9mGjfcoMcMRT1-OqIvtOFWoHGo7obqHXg/edit?gid=804322809)
+- 🇦🇺 [From English](https://docs.google.com/spreadsheets/d/1CrM7bhMkdiIKz3AKwwxiOYjR7LBo6AcM1xeXxMJNqhk/edit?gid=967644480#gid=967644480)
 
 ---
