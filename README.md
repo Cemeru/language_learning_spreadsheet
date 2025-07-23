@@ -19,9 +19,3 @@ This is a structured system for learning languages through example sentences and
 - 🇦🇺 [From English](https://docs.google.com/spreadsheets/d/1XlQrwcbLjc9mGjfcoMcMRT1-OqIvtOFWoHGo7obqHXg/edit?gid=804322809)
 
 ---
-
-### 🇧🇷 Learn Portuguese
-
-- 🇦🇺 [From English](https://docs.google.com/spreadsheets/d/1XlQrwcbLjc9mGjfcoMcMRT1-OqIvtOFWoHGo7obqHXg/edit?gid=804322809)
-
----
