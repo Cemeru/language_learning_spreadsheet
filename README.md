@@ -25,3 +25,34 @@ This is a structured system for learning languages through example sentences and
 - 🇦🇺 From English - In Progress
 
 ---
+
+## ✨ Features
+
+- ⚡ Google Apps Script automations:
+  - Auto-translation with DeepL and GPT
+  - TSV export for Anki
+  - Row filtering and cleaning
+- 🧠 Sentence-based learning
+- 🪶 Lightweight and editable
+- 🛠️ 100% offline-capable with Anki export
+
+---
+
+## 🚀 Do it Yourself
+
+1. **Open the sheet for your language pair**
+2. **Click `File > Make a copy` to edit your own version**
+3. Fill it with words, phrases, and translations.
+4. Use built-in scripts like:
+   - `Export to Anki (TSV)`
+   - `Auto Translate`
+   - `Delete rows if invalid`
+5. Import into **Anki** (or other flashcard tools) if you want offline SRS.
+
+## 🔓 License
+
+MIT — free to use, copy, modify, and improve.
+
+---
+
+Created by [Cemeru](https://github.com/Cemeru) — for serious language learners.
