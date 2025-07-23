@@ -2,9 +2,9 @@
 
 This is a structured system for learning languages through example sentences and spreadsheet automation. Each sheet is optimized for sentence mining, Anki export, and smart filtering using Google Apps Script.
 
-📥 All decks can also be downloaded as `.tsv` files from the `/decks` folder and imported directly into **Anki** or any other SRS tool that supports tab-separated values.
-
 No clutter. No noise. Just progress.
+
+📥 All decks can also be downloaded as `.tsv` files from the `/decks` folder and imported directly into **Anki** or any other SRS tool that supports tab-separated values.
 
 ---
 
@@ -22,7 +22,7 @@ No clutter. No noise. Just progress.
 ---
 
 - 🇻🇳 Learn Tiếng Việt
-  - 🇦🇺 From English - In Progress
+  - 🇦🇺 [From English](#) *(In Progress)*
 
 ---
 
@@ -57,7 +57,7 @@ No clutter. No noise. Just progress.
 ## 🚀 Do it Yourself
 
 1. **Open the sheet for your language pair**
-2. **Click `File > Make a copy` to edit your own version**
+2. **In the top menu, go to `File > Make a copy` to create your editable version**
 3. Fill it with words, phrases, and translations.
 4. Use built-in scripts like:
    - `Export to Anki (TSV)`
