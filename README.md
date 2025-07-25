@@ -2,6 +2,7 @@
 
 ![Google Sheets](https://img.shields.io/badge/Google-Sheets-34A853?style=for-the-badge&logo=googlesheets&logoColor=white)
 ![Anki Compatible](https://img.shields.io/badge/Anki-Compatible-blue?style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/Built_with-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 A minimal, powerful system for mastering languages through sentence mining and spreadsheet automation.
